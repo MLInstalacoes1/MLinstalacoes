@@ -1,0 +1,104 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Serviços Elétricos Profissionais</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100 text-gray-900">
+  <!-- Header -->
+  <header class="bg-blue-800 text-white p-6 text-center">
+    <h1 class="text-3xl font-bold">Serviços Elétricos Profissionais</h1>
+    <p class="text-lg">Instalações, Manutenção e Orçamento com Qualidade</p>
+  </header>
+
+  <!-- Serviços e Preços -->
+  <section class="p-6">
+    <h2 class="text-2xl font-bold mb-4">Tabela de Preços</h2>
+    <table class="w-full bg-white shadow-md rounded-lg overflow-hidden">
+      <thead class="bg-blue-600 text-white">
+        <tr>
+          <th class="p-4 text-left">Serviço</th>
+          <th class="p-4 text-left">Descrição</th>
+          <th class="p-4 text-left">Preço (R$)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="border-b">
+          <td class="p-4">Instalação de Tomada</td>
+          <td class="p-4">Tomada 127V ou 220V</td>
+          <td class="p-4">50,00</td>
+        </tr>
+        <tr class="border-b">
+          <td class="p-4">Troca de Disjuntor</td>
+          <td class="p-4">Disjuntor unipolar/bipolar</td>
+          <td class="p-4">70,00</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- Portfólio -->
+  <section class="p-6">
+    <h2 class="text-2xl font-bold mb-4">Trabalhos Realizados</h2>
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+      <div class="bg-white shadow-md rounded-lg overflow-hidden">
+        <img src="https://via.placeholder.com/400x300" alt="Serviço 1" class="w-full">
+        <div class="p-4">
+          <h3 class="font-semibold text-lg">Instalação de Quadro de Distribuição</h3>
+          <p>Instalação em residência com 12 disjuntores, DR e DPS.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Calculadora de Materiais -->
+  <section class="p-6 bg-white">
+    <h2 class="text-2xl font-bold mb-4">Calculadora de Materiais</h2>
+    <form id="calcForm" class="space-y-4">
+      <div>
+        <label class="block font-semibold">Metros de fio (R$2,00 por metro):</label>
+        <input type="number" id="fio" class="w-full p-2 border rounded" min="0" />
+      </div>
+      <div>
+        <label class="block font-semibold">Quantidade de disjuntores (R$25,00 cada):</label>
+        <input type="number" id="disjuntor" class="w-full p-2 border rounded" min="0" />
+      </div>
+      <div>
+        <label class="block font-semibold">Quantidade de tomadas (R$10,00 cada):</label>
+        <input type="number" id="tomada" class="w-full p-2 border rounded" min="0" />
+      </div>
+      <button type="button" onclick="calcularTotal()" class="bg-blue-600 text-white px-4 py-2 rounded">Calcular</button>
+      <p class="font-bold mt-2">Total: R$ <span id="resultado">0.00</span></p>
+    </form>
+  </section>
+
+  <!-- Contato -->
+  <section class="p-6">
+    <h2 class="text-2xl font-bold mb-4">Fale Conosco</h2>
+    <form class="space-y-4 max-w-xl mx-auto">
+      <input type="text" placeholder="Nome" class="w-full p-2 border rounded" required />
+      <input type="email" placeholder="E-mail" class="w-full p-2 border rounded" required />
+      <textarea placeholder="Mensagem" rows="4" class="w-full p-2 border rounded" required></textarea>
+      <button type="submit" class="bg-green-600 text-white px-4 py-2 rounded">Enviar</button>
+    </form>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-blue-800 text-white text-center p-4">
+    <p>&copy; 2025 Serviços Elétricos Profissionais. Todos os direitos reservados.</p>
+  </footer>
+
+  <script>
+    function calcularTotal() {
+      const fio = parseFloat(document.getElementById('fio').value) || 0;
+      const disjuntor = parseFloat(document.getElementById('disjuntor').value) || 0;
+      const tomada = parseFloat(document.getElementById('tomada').value) || 0;
+      const total = (fio * 2.0) + (disjuntor * 25.0) + (tomada * 10.0);
+      document.getElementById('resultado').textContent = total.toFixed(2);
+    }
+  </script>
+</body>
+</html>
